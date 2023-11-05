@@ -49,28 +49,25 @@ while True:
 #Задача 6
 
 #Задача 7
-a = input().split()
-b = input().split()
-vbig = int(a[0])*int(a[1])*int(a[2])
-vskinny = 0
-k = 0
+x, y, z = map(int, input().split())
+can_fit = True
 while True:
-    if int(b[k]) == 0: break
-    v = int(b[k])*int(b[k+1])*int(b[k+2])
-    k += 3
-    vskinny += v
-if vbig >= vskinny: print('Да')
-else: print('Нет')
+    box = list(map(int, input().split()))
+    if box[0] == 0:
+        break
+    if x < box[0] or y < box[1] or z < box[2]:
+        can_fit = False
+print("Да" if can_fit else "Нет")
 
 #Задача 8
 a = input().split()
 b = a[0]
 c = len(a) - 1
-n = 0
-while n != c:
-    if len(b) > len(a[n]): b = a[n]
+d = 0
+while d != c:
+    if len(b) > len(a[d]): b = a[d]
     else: pass
-    n += 1
+    d += 1
 print(b)
 
 #Задача 9
@@ -90,13 +87,13 @@ while True:
 print(int(c))
 
 #Задача 10
-phrase = ''
+word = ''
 while True:
     a = input()
     if a == 'стоп': break
-    phrase += a + ' '
-phrase = phrase.split('!')
-for str in phrase:
+    word += a + ' '
+word = word.split('!')
+for str in word:
     if str.strip() != '':
         print(f'{str.strip()}!')
 
