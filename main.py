@@ -47,7 +47,21 @@ while True:
     else: print(a)
 
 #Задача 6
-
+MAX = 10000
+print("Введите число") 
+is_prime = [True for _ in range(MAX)]
+for i in range(2, int(MAX ** (1 / 2)) + 1):
+  if is_prime[i]:
+    for j in range(i ** 2, MAX, i):
+      is_prime[j] = False 
+primes = [i for i in range(MAX) if is_prime[i]] 
+while True:
+  n = int(input())
+  if not n:
+    break
+  print("число:",n,"сумма:")
+  print(sum(primes[:n]))
+    
 #Задача 7
 x, y, z = map(int, input().split())
 can_fit = True
